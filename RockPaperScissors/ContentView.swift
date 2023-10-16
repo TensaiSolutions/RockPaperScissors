@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var gameMoves = ["👊", "👋", "✌️"]
     @State private var playerMoves = ["👋", "✌️", "👊"]
+    @State private var playerMoveCaptions = ["Paper", "Scissors", "Rock"]
     @State private var gameChoice = Int.random(in: 0...2)
     @State private var playerShouldWin = Bool.random()
     @State private var scoreTitle = ""
@@ -20,33 +21,84 @@ struct ContentView: View {
     @State private var numRounds = 1
     @State private var endGame = false
     var body: some View {
-        VStack {
-            Text("Rock Paper Scissors")
-                .font(.largeTitle.bold())
-                .foregroundColor(.blue)
-            HStack {
-                VStack{
-                    Text("The Game Chose")
-                    Text("\(gameMoves[gameChoice])")
-                }
+        ZStack{
+            RadialGradient(stops: [
+                .init(color: Color(red: 0.4, green: 0.7, blue: 0.65, opacity: 0.9), location: 0.3),
+                .init(color: Color(red: 0.76, green: 0.45, blue: 0.26, opacity: 0.5), location: 1)
+            ], center: .top, startRadius: 200, endRadius: 700)
+            .ignoresSafeArea()
+            VStack {
+                Spacer()
+
+                Text("Rock Paper Scissors")
+                    .titleStyle()
+
+                Spacer()
+
                 VStack {
-                    Text("The Player Should")
-                    if(playerShouldWin) {
-                        Text("Win")
-                    } else {
-                        Text("Lose")
+                    VStack(spacing: 15) {
+                        Text("Select your move")
+                            .conditionTitleStyle()
+
+                        HStack {
+                            Spacer()
+
+                            VStack {
+                                Text("Game Move:")
+                                    .conditionLabelStyle()
+                                Text(gameMoves[gameChoice])
+                                    .font(.largeTitle)
+                            }
+                            Spacer()
+
+                            VStack {
+                                Text("Win or Lose:")
+                                    .conditionLabelStyle()
+                                if playerShouldWin {
+                                    Text("Win")
+                                        .font(.largeTitle.weight(.semibold))
+                                        .foregroundColor(Color(red: 0.1, green: 0.69, blue: 0.55))
+                                } else {
+                                    Text("Lose")
+                                        .font(.largeTitle.weight(.semibold))
+                                        .foregroundColor(Color(red: 0.69, green: 0.1, blue: 0.25))
+                                }
+                            }
+
+                            Spacer()
+                        }
                     }
                 }
-            }
-            HStack {
-                ForEach(0..<3) { moveNumber in
-                    Button {
-                        moveTapped(moveNumber)
-                    } label: {
-                        Text("\(playerMoves[moveNumber])")
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .background(.regularMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+
+                HStack {
+                    ForEach(0..<3) { moveNumber in
+                        Button {
+                            moveTapped(moveNumber)
+                        } label: {
+                            PlayerEmojiView(emoji: playerMoves[moveNumber], caption: playerMoveCaptions[moveNumber])
+                        }
                     }
                 }
+                .padding(.vertical, 50)
+
+                Spacer()
+
+                Text("Round \(numRounds) of 5")
+                    .font(.headline)
+
+                Spacer()
+
+                Text("Score: \(playerScore)")
+                    .font(.title.bold())
+
+                Spacer()
+
             }
+            .padding()
         }
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: nextRound)

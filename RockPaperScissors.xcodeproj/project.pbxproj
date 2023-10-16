@@ -11,6 +11,8 @@
 		3A86A77A2ADDB79A00CCA8D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A7792ADDB79A00CCA8D3 /* ContentView.swift */; };
 		3A86A77C2ADDB79E00CCA8D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A77B2ADDB79E00CCA8D3 /* Assets.xcassets */; };
 		3A86A77F2ADDB79E00CCA8D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A86A77E2ADDB79E00CCA8D3 /* Preview Assets.xcassets */; };
+		3A86A7862ADDC28F00CCA8D3 /* PlayerEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A7852ADDC28F00CCA8D3 /* PlayerEmojiView.swift */; };
+		3A86A7882ADDC61F00CCA8D3 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A7872ADDC61F00CCA8D3 /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		3A86A7792ADDB79A00CCA8D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3A86A77B2ADDB79E00CCA8D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A86A77E2ADDB79E00CCA8D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3A86A7852ADDC28F00CCA8D3 /* PlayerEmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEmojiView.swift; sourceTree = "<group>"; };
+		3A86A7872ADDC61F00CCA8D3 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 		3A86A76B2ADDB79A00CCA8D3 = {
 			isa = PBXGroup;
 			children = (
+				3A86A7872ADDC61F00CCA8D3 /* ViewModifiers.swift */,
 				3A86A7762ADDB79A00CCA8D3 /* RockPaperScissors */,
 				3A86A7752ADDB79A00CCA8D3 /* Products */,
 			);
@@ -53,6 +58,7 @@
 			children = (
 				3A86A7772ADDB79A00CCA8D3 /* RockPaperScissorsApp.swift */,
 				3A86A7792ADDB79A00CCA8D3 /* ContentView.swift */,
+				3A86A7852ADDC28F00CCA8D3 /* PlayerEmojiView.swift */,
 				3A86A77B2ADDB79E00CCA8D3 /* Assets.xcassets */,
 				3A86A77D2ADDB79E00CCA8D3 /* Preview Content */,
 			);
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A86A77A2ADDB79A00CCA8D3 /* ContentView.swift in Sources */,
+				3A86A7862ADDC28F00CCA8D3 /* PlayerEmojiView.swift in Sources */,
 				3A86A7782ADDB79A00CCA8D3 /* RockPaperScissorsApp.swift in Sources */,
+				3A86A7882ADDC61F00CCA8D3 /* ViewModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
